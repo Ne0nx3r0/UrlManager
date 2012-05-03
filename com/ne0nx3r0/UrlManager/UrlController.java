@@ -48,6 +48,10 @@ public class UrlController{
     public void callUrl(String name, String[] params) {
         callUrl(null,name,params);
     }
+    
+    public void callUrl(String name, Player p) {
+        callUrl(p,name,null);
+    }
 
     public void callUrl(Player p, String urlName, String[] paramValues){        
         //TODO: Add POST method support

@@ -76,6 +76,14 @@ public class UrlManager extends JavaPlugin{
     }
     
 // Begin "API" 
+    
+/**
+* Add a URL Call with no parameters
+*
+* @param name - Name for the URL Call
+* @param url - URL (without a querystring) EX: http://www.google.com/
+* @param method - "GET" in most cases
+*/
     public void addUrlCall(
             String name,
             String url,
@@ -84,6 +92,15 @@ public class UrlManager extends JavaPlugin{
         urlController.addUrlCall(name, url, method);
     }
     
+    
+/**
+* Add a URL Call with parameters as a string
+*
+* @param name - Name for the URL Call
+* @param url - URL (without a querystring) EX: http://www.google.com/
+* @param method - "GET" in most cases
+* @param params - comma seperated string values "param" or "param1,param2,param3,etc"
+*/
     public void addUrlCall(
             String name,
             String url,
@@ -93,6 +110,14 @@ public class UrlManager extends JavaPlugin{
         urlController.addUrlCall(name, url, method, params.split(","));
     }
     
+/**
+* Add a URL Call with parameters as an array
+*
+* @param name - Name for the URL Call
+* @param url - URL (without a querystring) EX: http://www.google.com/
+* @param method - "GET" in most cases
+* @param params - String array of parameters
+*/
     public void addUrlCall(
             String name,
             String url,
@@ -102,23 +127,65 @@ public class UrlManager extends JavaPlugin{
         urlController.addUrlCall(name, url, method, params);
     }
     
+    
+/**
+* Add static data to be sent in a URL Call's querystring
+*
+* @param name - Name for the URL Call
+* @param key - querystring name (&this=)
+* @param value - querystring value (=this)
+*/
     public void addUrlCallData(String name, String key, String value){
         urlController.getUrlCall(name).addData(key, value);
     }
-    
+
+/**
+* Call a URL Call by name with no parameters
+*
+* @param name - Name for the URL Call
+*/
     public void callUrl(String name){
         urlController.callUrl(name,new String[]{});
     }
     
+/**
+* Call a URL Call by name with parameters, params specified as a string
+*
+* @param name - Name for the URL Call
+* @param params - comma seperated string values "paramValue" or "paramValue1,paramValue2,paramValue3,etc"
+*/
     public void callUrl(String name,String params){
         urlController.callUrl(name,params.split(","));
     }
     
+/**
+* Call a URL Call by name with parameters, params as an array
+*
+* @param name - Name for the URL Call
+* @param params - array of parameter values
+*/
     public void callUrl(String name,String[] params){
         urlController.callUrl(name,params);
     }
     
-    public void callUrl(Player p,String name,String[] params){
+/**
+* Call a URL Call by name with parameters, include the player, with params
+*
+* @param name - URL Call name
+* @param p - Player object
+*/ 
+    public void callUrl(String name,Player p){
+        urlController.callUrl(name,p);
+    }
+    
+/**
+* Call a URL Call by name with parameters, include the player, with params
+*
+* @param name - Name for the URL Call
+* @param params - array of parameter values
+* @param p - Player object
+*/ 
+    public void callUrl(String name,String[] params,Player p){
         urlController.callUrl(p,name,params);
     }
 // End "API"
