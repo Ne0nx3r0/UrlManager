@@ -1,5 +1,5 @@
 name: UrlManager
 main: com.ne0nx3r0.UrlManager.UrlManager
-version: '0.1'
+version: '0.2'
 database: false
 description: API for calling URLs

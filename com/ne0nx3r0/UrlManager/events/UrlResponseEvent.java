@@ -32,6 +32,10 @@ public class UrlResponseEvent extends Event {
         return this.params;
     }
     
+    public String getUrlCallName(){
+        return uc.getName();
+    }
+    
     public HandlerList getHandlers() {
         return handlers;
     }

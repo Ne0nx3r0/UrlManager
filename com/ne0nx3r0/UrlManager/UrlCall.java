@@ -46,4 +46,8 @@ public class UrlCall{
     String getUrl() {
         return this.url;
     }
+
+    public String getName(){
+        return this.name;
+    }
 }
